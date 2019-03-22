@@ -2,7 +2,7 @@
   "chain": [
     {
       "index": 1,
-      "timestamp": 1553109463576,
+      "timestamp": 1553258963984,
       "transactions": [],
       "nonce": 100,
       "hash": "0",
@@ -10,51 +10,29 @@
     },
     {
       "index": 2,
-      "timestamp": 1553109737465,
+      "timestamp": 1553260928389,
       "transactions": [
         {
-          "amount": 85,
+          "amount": 120,
+          "fileName": "Campus.pdf",
+          "fileHash": "4cf5d90eb74bae7a3015b5af70e6bb3068d6badabd2d710c5a453fae63487c56",
           "sender": "B4CEE9C0E5CD571",
-          "recipient": "3A3F6E462D48E9",
-          "transactionId": "4f5b49404b4511e9afb91734da183bde"
-        }
-      ],
-      "nonce": 104447,
-      "hash": "00000c9c891129c08fd3525ad3e10658a1b95143c2d17b8278700c356f2e80bf",
-      "previousBlockHash": "0"
-    },
-    {
-      "index": 3,
-      "timestamp": 1553110030070,
-      "transactions": [
-        {
-          "amount": 12.5,
-          "sender": "00",
-          "recipient": "d63d1f204b4411e9afb91734da183bde",
-          "transactionId": "797f40004b4511e9afb91734da183bde"
+          "recipient": "3A3F6E462D48E9"
         },
         {
-          "amount": 54,
+          "amount": 77,
+          "fileName": "Mampoer.pdf",
+          "fileHash": "4cf5d90eb74bae7a3015b5af70e6bb3068d6badabd2d710c5a453fae63487c56",
           "sender": "B4CEE9C0E5CD571",
-          "recipient": "3A3F6E462D48E9",
-          "transactionId": "0a8ac0104b4611e9afb91734da183bde"
+          "recipient": "3A3F6E462D48E9"
         }
       ],
-      "nonce": 54104,
-      "hash": "00009fbc11e53f60f3a412aa3d343052df3df292e04ad951e43e3d1456d1e113",
-      "previousBlockHash": "00000c9c891129c08fd3525ad3e10658a1b95143c2d17b8278700c356f2e80bf"
+      "nonce": 5997,
+      "hash": "0000d366fd1bd7318ecc279f36589c81c36736d88d5d0ece0d4f5dad125ad11c",
+      "previousBlockHash": "0"
     }
   ],
-  "pendingTransactions": [
-    {
-      "amount": 12.5,
-      "sender": "00",
-      "recipient": "d63d1f204b4411e9afb91734da183bde",
-      "transactionId": "27e73ad04b4611e9afb91734da183bde"
-    }
-  ],
-  "currentNodeUrl": "http://localhost:3002",
-  "networkNodes": [
-    "http://localhost:3001"
-  ]
+  "pendingTransactions": [],
+  "currentNodeUrl": "http://localhost:3001",
+  "networkNodes": []
 }

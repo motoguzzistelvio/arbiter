@@ -40,7 +40,11 @@ app.get('/blockchain', function (req, res) {
 });
 
 app.post('/transaction', function(req, res) {
-  const newTransaction = req.body;
+  var newTransaction = req.body;
+  if (buff != null){
+      newTransaction.fileHash = bitcoin.hashFile(buff);
+      buff = null;
+  }
   const blockIndex = bitcoin.addTransactionToPendingTransactions(newTransaction);
   
   saveChain();
@@ -158,7 +162,12 @@ app.post('/register-nodes-bulk', function (req, res) {
 });
 
 app.post('/transaction/broadcast', function(req, res)  {
-  const newTransaction = bitcoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
+  var newTransaction = req.body;
+  if (buff != null){
+    newTransaction.fileHash = bitcoin.hashFile(buff);
+    buff = null;
+  }
+  newTransaction = bitcoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
   bitcoin.addTransactionToPendingTransactions (newTransaction);
 
   const requestPromises = []; 

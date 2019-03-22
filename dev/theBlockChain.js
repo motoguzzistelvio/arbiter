@@ -29,9 +29,16 @@ TheBlockchain.prototype.createNewBlock = function (nonce, previousBlockHash, has
     return newBlock;
 }
 
-TheBlockchain.prototype.createNewTransaction = function(amount, sender, recipient){
+TheBlockchain.prototype.createNewTransaction = function(amount,
+                                                        fileHash,
+                                                        fileName, 
+                                                        sender, 
+                                                        recipient
+                                                        ){
     const newTransaction = {
         amount: amount,
+        fileHash: fileHash,
+        fileName: fileName,
         sender: sender,
         recipient: recipient,
         transactionId: uuid().split('-').join('')
@@ -50,6 +57,10 @@ TheBlockchain.prototype.hashBlock = function(previousBlockHash, currentBlockData
     const hash = sha256(dataAsString);
 
     return hash;
+}
+
+TheBlockchain.prototype.hashFile = function(fileData){
+    return sha256(fileData);
 }
 
 TheBlockchain.prototype.proofOfWork = function( previousBlockHash, currentBlockData) { 
