@@ -57,7 +57,6 @@ app.post('/transaction', function(req, res) {
 app.get('/mine', function(req, res) {
     const lastBlock = bitcoin.getLastBlock();
     const previousBlockHash = lastBlock['hash'];
-
     const currentBlockData = {
         transactions: bitcoin.pendingTransactions,
         index: lastBlock['index'] + 1
@@ -83,7 +82,9 @@ app.get('/mine', function(req, res) {
           uri: bitcoin.currentNodeUrl + '/transaction/broadcast',
           method: 'POST',
           body: {
-            amount: 12.5, 
+            amount: 12.5,
+            fileName: "", 
+            fileHash: "",
             sender:"00", 
             recipient: nodeAddress
           },
@@ -167,7 +168,11 @@ app.post('/transaction/broadcast', function(req, res)  {
     newTransaction.fileHash = bitcoin.hashFile(buff);
     buff = null;
   }
-  newTransaction = bitcoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
+  newTransaction = bitcoin.createNewTransaction(req.body.amount,
+                                                req.body.fileName,
+                                                req.body.fileHash, 
+                                                req.body.sender, 
+                                                req.body.recipient);
   bitcoin.addTransactionToPendingTransactions (newTransaction);
 
   const requestPromises = []; 

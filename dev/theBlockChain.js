@@ -30,15 +30,15 @@ TheBlockchain.prototype.createNewBlock = function (nonce, previousBlockHash, has
 }
 
 TheBlockchain.prototype.createNewTransaction = function(amount,
-                                                        fileHash,
-                                                        fileName, 
+                                                        fileName,
+                                                        fileHash, 
                                                         sender, 
                                                         recipient
                                                         ){
     const newTransaction = {
         amount: amount,
-        fileHash: fileHash,
         fileName: fileName,
+        fileHash: fileHash,
         sender: sender,
         recipient: recipient,
         transactionId: uuid().split('-').join('')
